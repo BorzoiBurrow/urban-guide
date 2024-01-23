@@ -30,5 +30,27 @@ console.log(sql)
 })
 
 function tables(answers){
-    
-}
+    action = answers.action
+    console.log(action)
+    switch(action){
+      case action = 'View Roles':
+      sql = "SELECT * FROM Roles"  
+      return sql;
+      case action = "View Departments":
+      sql = "SELECT * FROM Departments"
+      return sql;
+      case action = "View Employees":
+      sql = "SELECT * FROM Employees"
+      return sql;
+      case action = "AddDepartment":
+      sql = "INSERT TO Department"
+      return sql;
+      case action = "AddRole":
+      sql = "INSERT TO Roles"
+      return sql;
+      case action = "AddEmployee":
+      sql = "INSERT TO Employees"
+      return sql;
+      default:
+      console.error("No relevant case was selected!")
+  }}
