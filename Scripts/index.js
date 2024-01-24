@@ -4,6 +4,7 @@
 
 // global vars
 const inquirer = require('inquirer');
+const construction = require('./SQL')
 let sql = ""
 
 
@@ -24,17 +25,14 @@ inquirer.prompt([
   ])
   .then((answers) => {
     // convert wanted action to sql prompt
-console.log(answers)
 sql = tables(answers)
-console.log(sql)
 })
 
 function tables(answers){
     action = answers.action
-    console.log(action)
     switch(action){
       case action = 'View Roles':
-      sql = "SELECT * FROM Roles"  
+      sql = "SELECT * FROM Roles"
       return sql;
       case action = "View Departments":
       sql = "SELECT * FROM Departments"
@@ -44,13 +42,18 @@ function tables(answers){
       return sql;
       case action = "AddDepartment":
       sql = "INSERT TO Department"
-      return sql;
+      let count = 2
+      construction.addvalue(sql, count)
+      break;
       case action = "AddRole":
       sql = "INSERT TO Roles"
-      return sql;
+      addvalue(sql)
+      break;
       case action = "AddEmployee":
       sql = "INSERT TO Employees"
-      return sql;
+      addvalue(sql)
+      break;
+
       default:
       console.error("No relevant case was selected!")
   }}
