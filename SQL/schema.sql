@@ -5,7 +5,7 @@ CREATE TABLE Employees (
     LastName varchar(20),
     FirstName varchar(20),
     JobTitle varchar(20),
-    Department varchar(20),
+    DepartmentID varchar(20),
     EMPID int(10)
 );
 
@@ -20,7 +20,7 @@ DROP TABLE IF EXISTS Roles;
 CREATE TABLE Roles (
     JobTitle varchar(20),
     RoleID varchar(20),
-    Department varchar(16),
+    DepartmentID varchar(16),
     Salary varchar(16)
 );
 
