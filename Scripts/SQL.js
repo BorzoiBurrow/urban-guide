@@ -25,15 +25,9 @@ globalcount = count
      if (entrynum !== count){
             addvalue(sql, count)
      } else {
-        console.log(values)
-        sql = `${sql} ${values}`
-        console.log(sql)
-     }
-     
-    })
-    
-  
-}
+        SqlAssembly(sql,values)
+        
+     }})}
 
 
 

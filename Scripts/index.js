@@ -6,7 +6,7 @@
 const inquirer = require('inquirer');
 const construction = require('./SQL')
 let sql = ""
-
+let count = ''
 
 // gather wanted action.
 inquirer.prompt([
@@ -15,12 +15,12 @@ inquirer.prompt([
     name: "action",
     message: "What do you want to do?",
     choices: [ 
-       {name: 'view roles', value: 'View Roles'},
-       {name: 'view departments', value: 'View Departments'},
-       {name: 'view employees', value: 'View Employees'},
-       {name: 'add department', value: 'AddDepartment'},
-       {name: 'add role', value: 'AddRole'},
-       {name: 'add employee', value: 'AddEmployee'},
+        {name: 'view roles', value: 'View Roles'},
+        {name: 'view departments', value: 'View Departments'},
+        {name: 'view employees', value: 'View Employees'},
+        {name: 'add department', value: 'AddDepartment'},
+        {name: 'add role', value: 'AddRole'},
+        {name: 'add employee', value: 'AddEmployee'},
 ]}
   ])
   .then((answers) => {
@@ -32,28 +32,28 @@ function tables(answers){
     action = answers.action
     switch(action){
       case action = 'View Roles':
-      sql = "SELECT * FROM Roles"
-      return sql;
+        sql = "SELECT * FROM Roles"
+        return sql;
       case action = "View Departments":
-      sql = "SELECT * FROM Departments"
-      return sql;
+        sql = "SELECT * FROM Departments"
+        return sql;
       case action = "View Employees":
-      sql = "SELECT * FROM Employees"
-      return sql;
+        sql = "SELECT * FROM Employees"
+        return sql;
       case action = "AddDepartment":
-      sql = "INSERT TO Department"
-      let count = 2
-      construction.addvalue(sql, count)
-      break;
+        sql = "INSERT TO Department"
+        count = 2
+        construction.addvalue(sql, count)
+        break;
       case action = "AddRole":
-      sql = "INSERT TO Roles"
-      addvalue(sql)
-      break;
+        sql = "INSERT TO Roles"
+        addvalue(sql)
+        break;
       case action = "AddEmployee":
-      sql = "INSERT TO Employees"
-      addvalue(sql)
-      break;
-
+        sql = "INSERT TO Employees"
+        addvalue(sql)
+        break;
+ 
       default:
-      console.error("No relevant case was selected!")
+        console.error("No relevant case was selected!")
   }}
