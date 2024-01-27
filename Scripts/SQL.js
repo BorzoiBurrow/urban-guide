@@ -1,6 +1,7 @@
 // global vars and imports
 const inquirer = require('inquirer');
 let entrynum = 0
+let answerstorage = []
 let values = []
 let sql = ''
 let globalcount = ''
@@ -14,20 +15,32 @@ globalcount = count
     {
         type: "input",
         name: `${entrynum}`,
-        message: `please enter the value. you are on ${entrynum} of ${globalcount} entries.`
+        message: `please enter the value. you are on ${entrynum + 1} of ${globalcount} entries.`
 // push answers to the values array.
 
     }]).then((answers) => {
-         entrynum = entrynum + 1 
-         values.push(answers)
+         entrynum++
+        answer = Object.values(answers)
+         answerstorage.push(answer)
+         console.log(answerstorage)
+        //  values = Object.keys(answerstorage)
 
 // if more data is required to fill the entry, continue. Else Push to table.
      if (entrynum !== count){
             addvalue(sql, count)
      } else {
-        SqlAssembly(sql,values)
-        
+         SqlAssembly(sql,answerstorage)
+
      }})}
+
+
+// accepts the values and the SQL statement made by index
+function SqlAssembly(sql,values){
+   console.log(sql)
+   console.log(answerstorage)
+}
+
+
 
 
 

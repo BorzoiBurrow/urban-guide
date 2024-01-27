@@ -47,11 +47,13 @@ function tables(answers){
         break;
       case action = "AddRole":
         sql = "INSERT TO Roles"
-        addvalue(sql)
+        count = 4
+        construction.addvalue(sql, count)
         break;
       case action = "AddEmployee":
         sql = "INSERT TO Employees"
-        addvalue(sql)
+        count = 5
+        construction.addvalue(sql, count)
         break;
  
       default:
