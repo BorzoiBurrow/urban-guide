@@ -41,17 +41,17 @@ function tables(answers){
         sql = "SELECT * FROM Employees"
         return sql;
       case action = "AddDepartment":
-        sql = "INSERT TO Department"
+        sql = "INSERT TO Department VALUES ("
         count = 2
         construction.addvalue(sql, count)
         break;
       case action = "AddRole":
-        sql = "INSERT TO Roles"
+        sql = "INSERT TO Roles VALUES ("
         count = 4
         construction.addvalue(sql, count)
         break;
       case action = "AddEmployee":
-        sql = "INSERT TO Employees"
+        sql = "INSERT TO Employees VALUES ("
         count = 5
         construction.addvalue(sql, count)
         break;

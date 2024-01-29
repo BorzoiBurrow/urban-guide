@@ -2,7 +2,6 @@
 const inquirer = require('inquirer');
 let entrynum = 0
 let answerstorage = []
-let values = []
 let sql = ''
 let globalcount = ''
 
@@ -30,14 +29,26 @@ globalcount = count
             addvalue(sql, count)
      } else {
          SqlAssembly(sql,answerstorage)
+         
 
      }})}
 
 
 // accepts the values and the SQL statement made by index
-function SqlAssembly(sql,values){
-   console.log(sql)
-   console.log(answerstorage)
+function SqlAssembly(sql,answerstorage){
+   let finalsql = sql
+   let count = 0
+   for (item in answerstorage){
+    if (count + 1 === answerstorage.length){
+        finalsql = finalsql + ` "${answerstorage[count]}"`
+    }
+    else{
+        finalsql = finalsql + ` "${answerstorage[count]}",`
+        count++
+        console.log(finalsql)
+    }}
+   finalsql = finalsql + ")"
+   console.log(finalsql)
 }
 
 
