@@ -45,10 +45,10 @@ function SqlAssembly(sql,answerstorage){
     else{
         finalsql = finalsql + ` "${answerstorage[count]}",`
         count++
-        console.log(finalsql)
     }}
    finalsql = finalsql + ")"
    console.log(finalsql)
+   
 }
 
 
