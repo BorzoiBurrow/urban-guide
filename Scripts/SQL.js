@@ -1,5 +1,6 @@
 // global vars and imports
 const inquirer = require('inquirer');
+const connection = require('./connection');
 let entrynum = 0
 let answerstorage = []
 let sql = ''
@@ -47,7 +48,8 @@ function SqlAssembly(sql,answerstorage){
         count++
     }}
    finalsql = finalsql + ")"
-   console.log(finalsql)
+   connection.InsertTo(finalsql)
+   
    
 }
 

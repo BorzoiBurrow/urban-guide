@@ -1,35 +1,19 @@
-const mysql = require('mysql2');
+const mysql = require("mysql2")
 
-// creates the connection between MYSQL and the script.
-
-const company = mysql.createConnection({
+async function InsertTo(finalsql){
+  console.log("insertion begun...")
+try {
+  const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "SQLtest",
     database: "Company"
+  });
+  let results = connection.execute(finalsql);
+  console.log(results);
 
-});
-
-company.connect((err) => { 
-    if (err) { 
-      throw err; 
-    } else { 
-      console.log("connected to company database"); 
-    } 
-  }); 
-
-// decides what table will be inserted too
-function InsertTo(finalsql){
-if (finalsql === undefined ){
-console.error("InsertTo can not accept a undefined variable.")
-}
-
-else{
-  
+} catch (err) {
+  console.log(err);
 }}
 
-
-
-
-
-module.exports = [company, InsertTo]
+module.exports = {InsertTo}

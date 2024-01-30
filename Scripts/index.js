@@ -30,6 +30,7 @@ sql = tables(answers)
 
 function tables(answers){
     action = answers.action
+
     switch(action){
       case action = 'View Roles':
         sql = "SELECT * FROM Roles"
@@ -41,17 +42,17 @@ function tables(answers){
         sql = "SELECT * FROM Employees"
         return sql;
       case action = "AddDepartment":
-        sql = "INSERT TO Department VALUES ("
+        sql = "INSERT INTO Departments VALUES ("
         count = 2
         construction.addvalue(sql, count)
         break;
       case action = "AddRole":
-        sql = "INSERT TO Roles VALUES ("
+        sql = "INSERT INTO Roles VALUES ("
         count = 4
         construction.addvalue(sql, count)
         break;
       case action = "AddEmployee":
-        sql = "INSERT TO Employees VALUES ("
+        sql = "INSERT INTO Employees VALUES ("
         count = 5
         construction.addvalue(sql, count)
         break;
